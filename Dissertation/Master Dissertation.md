@@ -18,7 +18,9 @@ Supervisor: Sergei Savin
 
 Как я понял этот метод. Все, что необходимо - это модель (желательно идеальная), номинальное управление и много вычислительных ресурсов. Предположим, что у нас есть машинка с компьютером на ней. Машинка едет-едет и имеет номинальное управление, она просчитывает будущие состояния $x_t$ с управлением $u_t$ при помощи имеющейся модели на заданное число шагов вперед - горизонт $T$, но помимо этого добавляет на каждом шаге случайный шум $\delta u_n \in N (0, \Sigma)$, таким образом мы получаем "roll out" (траекторию просчитанную в будущее). А если сделать много таких вычислений и получить тысячи немного отличающихся траекторий, то можно создать из них лучшую и выбрать управление, соответствующее этой траектории. Лучшая траектория будет взвешенной суммой всех траекторий, при помощи оценки траектории (score, reward или cost) мы сможем определить важность каждой из них. Пусть динамика системы задаётся уравнением $x_{t+1} = f(x_t, u_t)$, а функция стоимости вдоль траектории с горизонтом $T$ имеет вид:
 $$
-S = \phi(x_T ) + \sum_{t=0}^{T-1}{l(x_t,u_t)}$$ где $l$ – мгновенная (промежуточная) стоимость, $\phi$ – терминальная. Цель – минимизировать J = minu E[S] $J = {min}_u \mathbb{E}$. В подходе path-integral по Лоуренсу (**TODO** изучить) решение через функцию стоимости превращается в ожидание по случайным траекториям. Практически это означает, что мы аппроксимируем оптимальное управление через набор симулированных реализаций. Для каждого сценария $k = 1..K$ генерируем возмущённое управление:
+S = \phi(x_T ) + \sum_{t=0}^{T-1}{l(x_t,u_t)}
+$$ 
+где $l$ – мгновенная (промежуточная) стоимость, $\phi$ – терминальная. Цель – минимизировать $J = {min}_u \mathbb{E}$. В подходе path-integral по Лоуренсу (**TODO** изучить) решение через функцию стоимости превращается в ожидание по случайным траекториям. Практически это означает, что мы аппроксимируем оптимальное управление через набор симулированных реализаций. Для каждого сценария $k = 1..K$ генерируем возмущённое управление:
 $$u_t^{(k)} = u_t^{nom} + \delta u_t^{(k)}$$ , где $\delta u_t^{(k)} \sim \mathcal{N}(0, \Sigma)$. Моделируем:
 $$x (k) t+1 = f(x (k) t , u (k) t )$$
 и вычисляем его суммарную стоимость $S_k$ . Мы даем каждой траектории вес для определения ее важности: 
@@ -58,9 +60,9 @@ $$u_t \leftarrow u_t + \frac{\sum_{k=1}^{K}{{\omega}_k \delta u_t^{(k)}}}{\sum_{
 ## References
 
 1. [Model Predictive Path Integral Control using Covariance Variable Importance Sampling](https://arxiv.org/pdf/1509.01149)
-2. [Robust Model Predictive Path Integral Control: Analysis and Performance Guarantees][https://arxiv.org/pdf/2102.09027]
-3. [Variational Inference MPC using Tsallis Divergence][https://www.roboticsproceedings.org/rss17/p073.pdf]
-4. [π-MPPI: A Projection-based Model Predictive Path Integral Scheme for Smooth Optimal Control of Fixed-Wing Aerial Vehicles][https://arxiv.org/pdf/2504.10962v1]
-5. [Model Predictive Path Integral Control for Agile Unmanned Aerial Vehicles][https://arxiv.org/pdf/2407.09812v1]
-6. [Full-Order Sampling-Based MPC for Torque-Level Locomotion Control via Diffusion-Style Anneng][https://arxiv.org/pdf/2409.15610]
-7. [A fault-tolerant and robust controller using model predictive path integral control for free-flying space robots][https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2022.1027918/full]
+2. [Robust Model Predictive Path Integral Control: Analysis and Performance Guarantees](https://arxiv.org/pdf/2102.09027)
+3. [Variational Inference MPC using Tsallis Divergence](https://www.roboticsproceedings.org/rss17/p073.pdf)
+4. [π-MPPI: A Projection-based Model Predictive Path Integral Scheme for Smooth Optimal Control of Fixed-Wing Aerial Vehicles](https://arxiv.org/pdf/2504.10962v1)
+5. [Model Predictive Path Integral Control for Agile Unmanned Aerial Vehicles](https://arxiv.org/pdf/2407.09812v1)
+6. [Full-Order Sampling-Based MPC for Torque-Level Locomotion Control via Diffusion-Style Anneng](https://arxiv.org/pdf/2409.15610)
+7. [A fault-tolerant and robust controller using model predictive path integral control for free-flying space robots](https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2022.1027918/full)
