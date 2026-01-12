@@ -69,9 +69,9 @@ $$
 ## References
 
 1. [Model Predictive Path Integral Control using Covariance Variable Importance Sampling](https://arxiv.org/pdf/1509.01149)
-2. [Robust Model Predictive Path Integral Control: Analysis and Performance Guarantees][https://arxiv.org/pdf/2102.09027]
-3. [Variational Inference MPC using Tsallis Divergence][https://www.roboticsproceedings.org/rss17/p073.pdf]
-4. [π-MPPI: A Projection-based Model Predictive Path Integral Scheme for Smooth Optimal Control of Fixed-Wing Aerial Vehicles][https://arxiv.org/pdf/2504.10962v1]
-5. [Model Predictive Path Integral Control for Agile Unmanned Aerial Vehicles][https://arxiv.org/pdf/2407.09812v1]
-6. [Full-Order Sampling-Based MPC for Torque-Level Locomotion Control via Diffusion-Style Anneng][https://arxiv.org/pdf/2409.15610]
-7. [A fault-tolerant and robust controller using model predictive path integral control for free-flying space robots][https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2022.1027918/full]
+2. [Robust Model Predictive Path Integral Control: Analysis and Performance Guarantees](https://arxiv.org/pdf/2102.09027)
+3. [Variational Inference MPC using Tsallis Divergence](https://www.roboticsproceedings.org/rss17/p073.pdf)
+4. [π-MPPI: A Projection-based Model Predictive Path Integral Scheme for Smooth Optimal Control of Fixed-Wing Aerial Vehicles](https://arxiv.org/pdf/2504.10962v1)
+5. [Model Predictive Path Integral Control for Agile Unmanned Aerial Vehicles](https://arxiv.org/pdf/2407.09812v1)
+6. [Full-Order Sampling-Based MPC for Torque-Level Locomotion Control via Diffusion-Style Anneng](https://arxiv.org/pdf/2409.15610)
+7. [A fault-tolerant and robust controller using model predictive path integral control for free-flying space robots](https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2022.1027918/full)
