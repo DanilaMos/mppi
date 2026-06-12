@@ -54,12 +54,12 @@ for i = 1:numel(alphas)
         ylabel('Ошибка, м');
 
         if alpha == 0
-            title(sprintf('Чистый MPPI, RMSE = %.3f м', data.path_rmse));
+            title(sprintf('Чистый MPPI, MSE = %.3f м', data.path_mse));
         else
-            title(sprintf('\\alpha = %.1f, RMSE = %.3f м', alpha, data.path_rmse));
+            title(sprintf('\\alpha = %.1f, MSE = %.3f м', alpha, data.path_mse));
         end
 
-        set(gca, 'FontSize', 10);
+        set(gca, 'FontSize', 14);
     else
         text(0.5, 0.5, sprintf('Файл не найден\n%s', fileName), ...
             'HorizontalAlignment', 'center', ...
@@ -68,7 +68,7 @@ for i = 1:numel(alphas)
     end
 end
 
-sgtitle('Ошибка следования траектории при различных факторах забывания', 'FontSize', 14);
+sgtitle('Ошибка следования траектории при различных факторах забывания', 'FontSize', 20);
 
 exportgraphics(gcf, 'path_error_alpha_grid.png', 'Resolution', 300);
 
