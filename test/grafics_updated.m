@@ -11,20 +11,20 @@ if isfile(selectedFile)
 
     figure('Color', 'w', 'Units', 'centimeters', 'Position', [3 3 18 12]);
 
-    plot(data.time(:), data.p_add_need(:), 'Color', '#00aa00', 'LineWidth', 1.8); hold on;
-    plot(data.time(:), data.p_add(:), 'Color', '#0000ff', 'LineWidth', 1.8);
+    plot(data.time(:), data.p_add_need(:), 'Color', '#00aa00', 'LineWidth', 2.0); hold on;
+    plot(data.time(:), data.p_add(:), 'Color', '#0000ff', 'LineWidth', 2.0);
 
     grid on; box on;
 
-    xlabel('Время, с', 'FontSize', 16);
-    ylabel('Компенсационный параметр, рад', 'FontSize', 16);
+    xlabel('Время, с', 'FontSize', 35);
+    ylabel('Компенсационный параметр, рад', 'FontSize', 35);
 
     legend('Истинное значение', 'Оценка', ...
         'Location', 'northeast', ...
-        'FontSize', 14);
+        'FontSize', 25);
 
     set(gca, ...
-        'FontSize', 15, ...
+        'FontSize', 20, ...
         'LineWidth', 0.8, ...
         'GridAlpha', 0.25);
 
@@ -60,21 +60,21 @@ for i = 1:numel(alphas)
 
         grid on; box on;
 
-        xlabel('Время, с', 'FontSize', 16);
-        ylabel('Ошибка, м', 'FontSize', 16);
+        xlabel('Время, с', 'FontSize', 35);
+        ylabel('Ошибка, м', 'FontSize', 35);
 
         if alpha == 0
             title(sprintf('Чистый MPPI, MSE = %.3f м', data.path_mse), ...
-                'FontSize', 16, ...
+                'FontSize', 35, ...
                 'FontWeight', 'normal');
         else
             title(sprintf('\\alpha = %.1f, MSE = %.3f м', alpha, data.path_mse), ...
-                'FontSize', 16, ...
+                'FontSize', 35, ...
                 'FontWeight', 'normal');
         end
 
         set(gca, ...
-            'FontSize', 14, ...
+            'FontSize', 20, ...
             'LineWidth', 0.8, ...
             'GridAlpha', 0.25);
     else
